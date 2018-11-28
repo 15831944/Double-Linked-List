@@ -23,4 +23,26 @@ private:
 	DLLNode<T> *head, *tail;
 };
 
+//***********template class declare and definition must be exist one file together***//
+template<typename T>
+void DLList<T>::addToTail(T el)
+{
+	if (head == 0)
+	{
+		head = new DLLNode<T>(el);
+		tail = head;
+	}
+	tail = new DLLNode<T>(el, tail);
+}
+
+template<typename T>
+void DLList<T>::addToHead(T el)
+{
+	if (head == 0)
+	{
+		tail = head = new DLLNode<T>(el);
+	}
+	head = new DLLNode<T>(el, 0, head);
+}
+
 #endif DLLIST_H
